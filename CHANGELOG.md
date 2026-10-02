@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-bsg-channel` will be documented in this file.
 
-## Unreleased
+## 0.2.0 - 2026-10-02
 
 - Rename the package from `laravel-bsg-sms-channel` to `laravel-bsg-channel`.
 - Move BSG API transport, requests, responses, and errors to `andriichuk/bsg-php-sdk`.
