@@ -1,5 +1,5 @@
 <?php
 
-use Andriichuk\BsgSmsChannel\Tests\TestCase;
+use Andriichuk\BsgChannel\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

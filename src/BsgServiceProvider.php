@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Andriichuk\BsgSmsChannel;
+namespace Andriichuk\BsgChannel;
 
+use Andriichuk\Bsg\BsgClient;
+use Andriichuk\Bsg\Contracts\BsgClientInterface;
+use Andriichuk\BsgChannel\Services\SmsStatusService;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,13 +17,15 @@ final class BsgServiceProvider extends ServiceProvider implements DeferrableProv
         $this->app->singleton(BsgClient::class, static function (): BsgClient {
             return new BsgClient(
                 (string) config('services.bsg.api_key'),
-                (string) config('services.bsg.from'),
             );
         });
+
+        $this->app->alias(BsgClient::class, BsgClientInterface::class);
+        $this->app->singleton(SmsStatusService::class);
     }
 
     public function provides(): array
     {
-        return [BsgClient::class];
+        return [BsgClient::class, BsgClientInterface::class, SmsStatusService::class];
     }
 }
