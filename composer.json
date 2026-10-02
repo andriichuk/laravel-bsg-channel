@@ -1,14 +1,15 @@
 {
-    "name": "andriichuk/laravel-bsg-sms-channel",
-    "description": "Laravel notification channel for the BSG World SMS API",
+    "name": "andriichuk/laravel-bsg-channel",
+    "description": "Laravel notification channels for the BSG World API",
     "keywords": [
         "laravel",
         "bsg",
-        "laravel-bsg-sms-channel",
+        "laravel-bsg-channel",
         "sms",
+        "viber",
         "notifications"
     ],
-    "homepage": "https://github.com/andriichuk/laravel-bsg-sms-channel",
+    "homepage": "https://github.com/andriichuk/laravel-bsg-channel",
     "license": "MIT",
     "authors": [
         {
@@ -19,9 +20,9 @@
     ],
     "require": {
         "php": "^8.3",
+        "andriichuk/bsg-php-sdk": "^0.1",
         "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0||^13.5",
-        "guzzlehttp/guzzle": "^7.9||^8.2"
+        "illuminate/contracts": "^11.0||^12.0||^13.5"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -37,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Andriichuk\\BsgSmsChannel\\": "src/"
+            "Andriichuk\\BsgChannel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Andriichuk\\BsgSmsChannel\\Tests\\": "tests/",
+            "Andriichuk\\BsgChannel\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -64,10 +65,16 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Andriichuk\\BsgSmsChannel\\BsgSmsChannelServiceProvider"
+                "Andriichuk\\BsgChannel\\BsgChannelServiceProvider"
             ]
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/andriichuk/bsg-php-sdk"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }

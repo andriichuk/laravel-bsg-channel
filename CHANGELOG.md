@@ -1,8 +1,13 @@
 # Changelog
 
-All notable changes to `laravel-bsg-sms-channel` will be documented in this file.
+All notable changes to `laravel-bsg-channel` will be documented in this file.
 
 ## Unreleased
+
+- Rename the package from `laravel-bsg-sms-channel` to `laravel-bsg-channel`.
+- Move BSG API transport, requests, responses, and errors to `andriichuk/bsg-php-sdk`.
+- Organize the Laravel integration around `Channels\\SmsChannel` and `Messages\\Sms` for future channel expansion.
+- Add injectable SMS status lookup by BSG message ID or external reference.
 
 ## 0.1.0 - 2026-09-26
 
