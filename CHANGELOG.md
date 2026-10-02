@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-bsg-channel` will be documented in this file.
 
+## Unreleased
+
+- Add the `bsg:sms-status` Artisan command for status lookup by BSG message ID or external reference.
+- Resolve the published BSG PHP SDK directly from Packagist.
+
 ## 0.2.0 - 2026-10-02
 
 - Rename the package from `laravel-bsg-sms-channel` to `laravel-bsg-channel`.
