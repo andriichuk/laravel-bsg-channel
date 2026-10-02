@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Andriichuk\BsgChannel;
 
 use Andriichuk\BsgChannel\Channels\SmsChannel;
+use Andriichuk\BsgChannel\Commands\SmsStatusCommand;
 use Illuminate\Support\Facades\Notification;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -13,7 +14,9 @@ final class BsgChannelServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-        $package->name('laravel-bsg-channel');
+        $package
+            ->name('laravel-bsg-channel')
+            ->hasCommand(SmsStatusCommand::class);
     }
 
     public function packageRegistered(): void

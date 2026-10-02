@@ -153,11 +153,29 @@ $status->toArray();
 
 BSG API failures throw `Andriichuk\Bsg\Exceptions\BsgApiException`.
 
+### Checking status from the command line
+
+Use the BSG message ID returned when the SMS was sent:
+
+```bash
+php artisan bsg:sms-status 22125
+```
+
+Or look up the SMS by your external reference:
+
+```bash
+php artisan bsg:sms-status invite42 --reference
+```
+
+The command prints all available delivery fields in a table. It uses the same
+injectable `SmsStatusService` as application code.
+
 ## Architecture
 
 - `Channels\SmsChannel` adapts Laravel notifications to BSG SMS requests.
 - `Messages\Sms` contains Laravel-facing message options.
 - `Services\SmsStatusService` provides injectable status lookups.
+- `Commands\SmsStatusCommand` exposes those lookups through Artisan.
 - `andriichuk/bsg-php-sdk` owns HTTP requests, authentication, API errors, and response objects.
 
 A future Viber integration can add its own channel and message class while sharing the SDK client and package configuration.
